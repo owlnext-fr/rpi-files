@@ -26,7 +26,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # lancer firefox sur localhost:8080 en plein écran
-firefox http://localhost:8080 --kiosk &>/dev/null &
+firefox http://localhost:8080 &>/dev/null &
 
 if [ $? -ne 0 ]; then
     zenity --error --text="Impossible de lancer firefox" 2>/dev/null
