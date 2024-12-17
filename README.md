@@ -132,7 +132,7 @@ Copier le contenu suivant :
 [Desktop Entry]
 Type=Application
 Name=startup
-Exec=/bin/bash /srv/owlnext/rpi-files-main/startup.sh
+Exec=/bin/bash /srv/rpi-files-main/startup.sh
 ```
 
 Enregistrez et fermez le fichier.
