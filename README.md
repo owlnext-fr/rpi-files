@@ -54,3 +54,65 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 sudo apt update
 sudo apt install caddy
 ```
+
+### Télécharger les sources et les installer
+
+1. en haut de cette page, cliquer sur le bouton vert `Code`
+2. cliquer sur `Download ZIP`
+3. ouvrir un terminal
+
+```bash
+cd /srv
+sudo chown -R $(whoami): .
+sudo chmod -R 777 .
+mv ~/Downloads/rpi-files-main.zip .
+unzip rpi-files-main.zip
+cd rpi-files-main
+unzip statuspage-main.zip
+cd ..
+mkdir statuspage
+cd statuspage
+mv /srv/owlnext/rpi-files-main/statuspage-main/* .
+```
+
+### Configuration de la page de statut
+
+```bash
+cd /srv/owlnext/statuspage/dist
+mousepad config.json
+```
+
+Copier le contenu suivant :
+
+```json
+{
+  "apps": [
+    {
+      "name": "Application 1",
+      "checkpoints": [
+        {
+          "name": "Compteur d'issues",
+          "type": "issue_counter",
+          "endpoint": "https://glitch.owlnext.fr/api/0/organizations/owlnext/issues/?query=is:unresolved&project=52",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer 684044ce7b709a2103fff72adda8b17a964f6d5489db6efb5f0d41858a0e444e"
+          }
+        }
+      ]
+    }
+  ],
+  "rotationInterval": 5000,
+  "muteDuration": 300000
+}
+```
+
+Enregistrez et fermez le fichier.
+
+Lancer en suite un test :
+
+```bash
+caddy run
+```
+
+Ouvrez un navigateur et allez sur `http://localhost:8080`.
