@@ -102,7 +102,7 @@ Copier le contenu suivant :
       ]
     }
   ],
-  "rotationInterval": 5000,
+  "rotationInterval": 15000,
   "muteDuration": 300000
 }
 ```
@@ -116,3 +116,27 @@ caddy run
 ```
 
 Ouvrez un navigateur et allez sur `http://localhost:8080`.
+
+### Lancement au démarrage
+
+Ouvrir un terminal, puis :
+
+```bash
+mkdir /home/pi/.config/autostart
+mousepad /home/pi/.config/autostart/startup.desktop
+```
+
+Copier le contenu suivant :
+
+```desktop
+[Desktop Entry]
+Type=Application
+Name=startup
+Exec=/bin/bash /srv/owlnext/rpi-files-main/startup.sh
+```
+
+Enregistrez et fermez le fichier.
+
+Redémarrez le Raspberry PI.
+
+Tout est prêt !
