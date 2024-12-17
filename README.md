@@ -72,7 +72,7 @@ unzip statuspage-main.zip
 cd ..
 mkdir -p /srv/owlnext/statuspage
 cd /srv/owlnext/statuspage
-mv /srv/owlnext/rpi-files-main/statuspage-main/* .
+mv /srv/rpi-files-main/statuspage-main/* .
 ```
 
 ### Configuration de la page de statut
