@@ -70,8 +70,8 @@ unzip rpi-files-main.zip
 cd rpi-files-main
 unzip statuspage-main.zip
 cd ..
-mkdir statuspage
-cd statuspage
+mkdir -p /srv/owlnext/statuspage
+cd /srv/owlnext/statuspage
 mv /srv/owlnext/rpi-files-main/statuspage-main/* .
 ```
 
